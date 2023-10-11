@@ -97,13 +97,21 @@ html body{
 
 
 #heroleft .elem{
+    position: relative;
     height: 9vw;
     overflow: hidden;
 }
 
+#heroleft .elem h1:nth-child(1){
+    top:0;
+}
+
 #heroleft .elem h1{
+    position: absolute;
+    top:100%;
+    left:0;
     line-height: .9;
-    font-family: "kajiro";
+    font-family : "kajiro";
     color:#fff;
     font-weight: 100;
     font-size: 11vw;

@@ -22,35 +22,68 @@ Shery.imageEffect("#back", {
     noise_height: { value: 0.47, range: [0, 2] },
     noise_scale: { value: 12.15, range: [0, 100] },
   },
-  gooey: true,
+  gooey:true,
 });
 
+
+// var elems=document.querySelectorAll(".elem");
+
+// elems.forEach(function(elem){
+//     var h1s=elem.querySelectorAll("h1");
+//     var index=0;
+//     var animating = false;
+//     document.querySelector("#main").addEventListener("click",function(){
+//        if(!animating) {
+//         gsap.to(h1s[index],{
+//             top:"-=100%",
+//             ease:Expo.easeInOut,
+//             duration:1,
+//             onComplete: function(){
+//                 gsap.set(this._targets[0],{top:"100%"});
+//                 animating=false;
+//             },
+//          });
+        
+//         index===h1s.length-1 ? (index=0) :  index++;
+
+//         gsap.to(h1s[index],{
+//             top:"-=100%",
+//             ease:Expo.easeInOut,
+//             duration:1,
+//         }); 
+//     } 
+//     });
+// });
 
 var elems=document.querySelectorAll(".elem");
 
 elems.forEach(function(elem){
-    var h1s=elem.querySelectorAll("h1");
-    var index=0;
-    var animating = false;
-    document.querySelector("#main").addEventListener("click",function(){
-       if(!animating) {
-        gsap.to(h1s[index],{
-            top:"-=100%",
-            ease:Expo.easeInOut,
-            duration:1,
-            onComplete: function(){
-                gsap.set(this._target[0],{top:"100%"});
-                animating=false;
-            },
-         });
-        
-        index===h1s.length-1 ? (index=0) :  index++;
 
-        gsap.to(h1s[index],{
-            top:"-=100%",
-            ease:Expo.easeInOut,
-            duration:1,
-        }); 
-    } 
-    });
+var h1s=elem.querySelectorAll("h1");
+var index=0;
+var animating = false;
+document.querySelector("#main").addEventListener("click", function() {
+ if(!animating){
+  animating=true;
+  gsap.to((h1s[index]),{
+    top : "-=100%",
+    ease: Expo.easeInOut,
+    duration: 1,
+    onComplete: function(){
+     gsap.set(this._targets[0], {top:"100%"} );
+     animating=false;
+    },
+  });
+  index === h1s.length-1 ? (index=0) :  index++;
+  gsap.to((h1s[index]),{
+    top : "-=100%",
+    ease: Expo.easeInOut,
+    duration: 1,
+  });
+ }
 });
+});
+ 
+
+
+
